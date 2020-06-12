@@ -2,8 +2,8 @@
 
 Prerequisites:
 Your machine need to have installed 
-- NodeJs 12
-- Angular 9
+- [NodeJS 12](https://nodejs.org/en/download/)
+- [Angular 9](https://angular.io/guide/setup-local)
 
 In order to run the project first you need to download the dependencies
 To download the dependencies you just need to run the following command in the console:
