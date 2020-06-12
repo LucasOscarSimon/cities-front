@@ -1,4 +1,4 @@
-# world-citizens-registration
+# World Citizens Registration
 
 Prerequisites:
 Your machine need to have installed 
