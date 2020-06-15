@@ -3,14 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-// used to create fake backend
-//import { fakeBackendProvider } from './_helpers';
-
 import { AppRoutingModule } from './app-routing.module';
-import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { JwtInterceptor, ErrorInterceptor } from './helpers';
 import { AppComponent } from './app.component';
-import { AlertComponent } from './_components';
-import { HomeComponent } from './home';
+import { AlertComponent } from './components/shared/alert';
+import { HomeComponent } from './components/home';
 
 @NgModule({
     imports: [
@@ -22,7 +19,7 @@ import { HomeComponent } from './home';
     declarations: [
         AppComponent,
         AlertComponent,
-        HomeComponent
+        HomeComponent,
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
@@ -33,4 +30,5 @@ import { HomeComponent } from './home';
     ],
     bootstrap: [AppComponent]
 })
-export class AppModule { };
+export class AppModule { }
+

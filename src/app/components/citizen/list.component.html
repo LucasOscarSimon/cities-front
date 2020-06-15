@@ -1,0 +1,37 @@
+﻿<h1>Citizens</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Add Citizen</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 30%">First Name</th>
+            <th style="width: 30%">Last Name</th>
+            <th style="width: 30%">Document</th>
+            <th style="width: 30%">Email</th>
+            <th style="width: 30%">Address</th>
+            <th style="width: 30%">City</th>
+            <th style="width: 10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let citizen of citizens">
+            <td>{{citizen.firstName}}</td>
+            <td>{{citizen.lastName}}</td>
+            <td>{{citizen.document}}</td>
+            <td>{{citizen.email}}</td>
+            <td>{{citizen.address}}</td>
+            <td>{{citizen.city.name}}</td>
+            <td style="white-space: nowrap">
+                <a routerLink="edit/{{citizen.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                <button (click)="deleteCitizen(citizen.id)" class="btn btn-sm btn-danger btn-delete-citizen" [disabled]="citizen.isDeleting">
+                    <span *ngIf="citizen.isDeleting" class="spinner-border spinner-border-sm"></span>
+                    <span *ngIf="!citizen.isDeleting">Delete</span>
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!citizens">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
