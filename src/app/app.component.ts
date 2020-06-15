@@ -11,8 +11,9 @@ export class AppComponent {
         this.accountService.user.subscribe(x => this.user = x);
     }
 
-    get isAdmin() {
-      return this.user && this.accountService.userValue.role === Role.Admin;
+    get hasPermission() {
+      const userRole = this.accountService.userValue.role;
+      return this.user && (userRole === Role.Admin || userRole === Role.User);
     }
 
     logout() {
