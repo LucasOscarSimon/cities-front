@@ -2,7 +2,10 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
     <div class="navbar-nav">
         <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-        <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+        <a class="nav-item nav-link" routerLink="/users" *ngIf="isAdmin" routerLinkActive="active">Users</a>
+        <a class="nav-item nav-link" routerLink="/citizens" *ngIf="isAdmin" routerLinkActive="active">Citizens</a>
+        <a class="nav-item nav-link" routerLink="/cities" *ngIf="isAdmin || isUser" routerLinkActive="active">Cities</a>
+        <a class="nav-item nav-link" routerLink="/states" *ngIf="isAdmin || isUser" routerLinkActive="active">States</a>
         <a class="nav-item nav-link" (click)="logout()">Logout</a>
     </div>
 </nav>
@@ -16,6 +19,6 @@
 <!-- credits -->
 <div class="text-center mt-4">
     <p>
-        <a>Citizens Registration</a>
+        <a>World Citizens</a>
     </p>
 </div>

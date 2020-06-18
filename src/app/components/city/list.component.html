@@ -1,0 +1,29 @@
+﻿<h1>Cities</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Add City</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 30%">Name</th>
+            <th style="width: 30%">State</th>
+            <th style="width: 10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let city of cities">
+            <td>{{city.name}}</td>
+            <td>{{city.state.name}}</td>
+            <td style="white-space: nowrap">
+                <a routerLink="edit/{{city.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                <button (click)="deleteCity(city.id)" class="btn btn-sm btn-danger btn-delete-city" [disabled]="city.isDeleting">
+                    <span *ngIf="city.isDeleting" class="spinner-border spinner-border-sm"></span>
+                    <span *ngIf="!city.isDeleting">Delete</span>
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!cities">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
