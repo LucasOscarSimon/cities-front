@@ -1,9 +1,10 @@
 ﻿<div class="p-4">
     <div class="container">
         <h1>Hi {{user.username}}!</h1>
-        <p><a *ngIf="hasPermission" routerLink="/users">Manage Users</a></p>
-        <p><a *ngIf="hasPermission" routerLink="/citizens">Manage Citizens</a></p>
-        <p><a *ngIf="hasPermission" routerLink="/cities">Manage Cities</a></p>
-        <p><a *ngIf="hasPermission" routerLink="/states">Manage States</a></p>
+
+        <p><a *ngIf="isAdmin" routerLink="/users">Manage Users</a></p>
+        <p><a *ngIf="isAdmin" routerLink="/citizens">Manage Citizens</a></p>
+        <p><a *ngIf="isUser || isAdmin" routerLink="/cities">Manage Cities</a></p>
+        <p><a *ngIf="isUser || isAdmin" routerLink="/states">Manage States</a></p>
     </div>
 </div>

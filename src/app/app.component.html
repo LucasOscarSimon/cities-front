@@ -2,10 +2,10 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
     <div class="navbar-nav">
         <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-        <a class="nav-item nav-link" routerLink="/citizens" *ngIf="hasPermission" routerLinkActive="active">Citizens</a>
-        <a class="nav-item nav-link" routerLink="/cities" *ngIf="hasPermission" routerLinkActive="active">Cities</a>
-        <a class="nav-item nav-link" routerLink="/states" *ngIf="hasPermission" routerLinkActive="active">States</a>
-        <a class="nav-item nav-link" routerLink="/users" *ngIf="hasPermission" routerLinkActive="active">Users</a>
+        <a class="nav-item nav-link" routerLink="/users" *ngIf="isAdmin" routerLinkActive="active">Users</a>
+        <a class="nav-item nav-link" routerLink="/citizens" *ngIf="isAdmin" routerLinkActive="active">Citizens</a>
+        <a class="nav-item nav-link" routerLink="/cities" *ngIf="isAdmin || isUser" routerLinkActive="active">Cities</a>
+        <a class="nav-item nav-link" routerLink="/states" *ngIf="isAdmin || isUser" routerLinkActive="active">States</a>
         <a class="nav-item nav-link" (click)="logout()">Logout</a>
     </div>
 </nav>

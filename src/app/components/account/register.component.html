@@ -2,11 +2,6 @@
     <h4 class="card-header">Register</h4>
     <div class="card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
-<!--
-          <select class="form-control">
-            <option *ngFor="let control of this.form.controls">{{control}}</option>
-          </select> -->
-
           <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />

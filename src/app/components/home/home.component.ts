@@ -11,8 +11,13 @@ export class HomeComponent {
         this.user = this.accountService.userValue;
     }
 
-    get hasPermission() {
+    get isUser() {
       const userRole = this.accountService.userValue.role;
-      return this.user && (userRole === Role.Admin || userRole === Role.User);
+      return this.user && userRole === Role.User;
+    }
+
+    get isAdmin(){
+      const userRole = this.accountService.userValue.role;
+      return this.user && (userRole === Role.Admin);
     }
 }
